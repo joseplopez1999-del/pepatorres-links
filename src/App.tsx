@@ -2,6 +2,7 @@ import { useState } from 'react';
 import AdventCalendarScreen from './components/advent/AdventCalendarScreen';
 import PhoneFrame from './components/PhoneFrame';
 import HomeScreenGrid from './components/HomeScreenGrid';
+import HomeBackground from './components/HomeBackground';
 import LinksDock from './components/LinksDock';
 import OnAnemScreen from './components/projects/OnAnemScreen';
 import Zero2HeroScreen from './components/projects/Zero2HeroScreen';
@@ -13,7 +14,7 @@ import ContactScreen from './components/ContactScreen';
 type AppView = 'home' | 'advent' | 'vibe' | 'zero2hero' | 'onanem';
 
 const INNER_SCREEN_CLASS: Record<AppView, string> = {
-  home: 'bg-[#E5DBCF]',
+  home: 'bg-[#04030c]',
   advent: 'bg-[#1D3F25]',
   vibe: 'bg-[#05142b]',
   zero2hero: 'bg-white',
@@ -21,6 +22,7 @@ const INNER_SCREEN_CLASS: Record<AppView, string> = {
 };
 
 const STATUS_BAR_CLASS: Partial<Record<AppView, string>> = {
+  home: 'text-white/85 [&_.status-bar-pill]:border-white/30 [&_.status-bar-pill]:bg-white/10',
   advent:
     'text-[#FEF8E8] [&_.status-bar-pill]:border-[#FEF8E8]/35 [&_.status-bar-pill]:bg-white/10',
   vibe: 'text-white/85 [&_.status-bar-pill]:border-white/30 [&_.status-bar-pill]:bg-white/10',
@@ -90,9 +92,7 @@ function App() {
         statusBarClassName={statusBarClassName}
         enableMobileContentScale={isHome}
       >
-        {isHome ? (
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_-15%,rgba(255,255,255,0.5),transparent_52%),radial-gradient(ellipse_100%_70%_at_50%_110%,rgba(55,50,45,0.06),transparent_45%)]" />
-        ) : null}
+        {isHome ? <HomeBackground /> : null}
         <div
           className={`relative z-10 flex h-full min-h-0 w-full flex-1 flex-col ${contentOuterClass}`}
         >

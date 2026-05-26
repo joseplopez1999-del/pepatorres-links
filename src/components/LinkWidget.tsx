@@ -39,7 +39,7 @@ export default function LinkWidget({
 
   const body =
     variant === 'profile' ? (
-      <div className="flex h-full min-h-0 w-full min-w-0 flex-1 items-center justify-start gap-7 rounded-[22px] bg-[#c0122b] py-5 pl-5 pr-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] max-md:gap-4 max-md:py-3 max-md:pl-4 max-md:pr-3">
+      <div className="flex h-full min-h-0 w-full min-w-0 flex-1 items-center justify-start gap-7 rounded-[22px] bg-gradient-to-br from-[#d4142f] via-[#b8102a] to-[#7d0a1c] py-5 pl-5 pr-4 shadow-[0_8px_32px_rgba(192,18,43,0.45),inset_0_1px_0_rgba(255,255,255,0.15)] max-md:gap-4 max-md:py-3 max-md:pl-4 max-md:pr-3">
         <div className="size-[76px] shrink-0 overflow-hidden rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.12)] max-md:size-[62px]">
           <img
             src={profileImage}
@@ -75,8 +75,8 @@ export default function LinkWidget({
     <span
       className={
         variant === 'profile'
-          ? 'max-md:-mb-6 shrink-0 text-center text-xs font-medium leading-none text-neutral-800'
-          : 'link-widget-vibe-caption shrink-0 text-[12px] font-medium leading-none text-neutral-800 max-md:w-[var(--vibe-icon-size,128px)] max-md:self-end max-md:text-center'
+          ? 'max-md:-mb-6 shrink-0 text-center text-xs font-medium leading-none text-white/75'
+          : 'link-widget-vibe-caption shrink-0 text-[12px] font-medium leading-none text-white/75 max-md:w-[var(--vibe-icon-size,128px)] max-md:self-end max-md:text-center'
       }
     >
       {caption}

@@ -90,10 +90,10 @@ export default function ProjectScreen({ onClose }: Props) {
 
   return (
     <div
-      className="absolute inset-0 z-[150] flex items-end justify-center rounded-[34px] bg-black/50 backdrop-blur-sm"
+      className="absolute inset-0 z-[150] flex items-end justify-center rounded-[34px] bg-black/60 backdrop-blur-md"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="max-h-[90%] w-full overflow-y-auto rounded-t-[28px] bg-[#0d0d14] px-6 pb-10 pt-5 shadow-2xl">
+      <div className="max-h-[90%] w-full overflow-y-auto rounded-t-[32px] bg-gradient-to-b from-[#13131f] to-[#0a0a0f] px-6 pb-10 pt-5 shadow-[0_-8px_48px_rgba(0,0,0,0.7)]">
         <div className="mb-5 flex items-center justify-between">
           <div className="h-1 w-10 rounded-full bg-white/20" />
           <button
@@ -127,7 +127,7 @@ export default function ProjectScreen({ onClose }: Props) {
                 placeholder="Tu nombre"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-sans text-sm text-white placeholder-white/30 outline-none focus:border-[#a78bfa]/50"
+                className="w-full rounded-2xl border border-white/[0.07] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white placeholder-white/25 outline-none transition-colors duration-200 focus:border-[#a78bfa]/60 focus:bg-white/[0.07]"
               />
               <input
                 type="text"
@@ -135,7 +135,7 @@ export default function ProjectScreen({ onClose }: Props) {
                 placeholder="Email o WhatsApp"
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-sans text-sm text-white placeholder-white/30 outline-none focus:border-[#a78bfa]/50"
+                className="w-full rounded-2xl border border-white/[0.07] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white placeholder-white/25 outline-none transition-colors duration-200 focus:border-[#a78bfa]/60 focus:bg-white/[0.07]"
               />
 
               {/* Servicios por grupo */}
@@ -241,7 +241,7 @@ export default function ProjectScreen({ onClose }: Props) {
                   placeholder="Emprendedor, clínica, tienda online..."
                   value={occupation}
                   onChange={(e) => setOccupation(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-sans text-sm text-white placeholder-white/30 outline-none focus:border-[#a78bfa]/50"
+                  className="w-full rounded-2xl border border-white/[0.07] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white placeholder-white/25 outline-none transition-colors duration-200 focus:border-[#a78bfa]/60 focus:bg-white/[0.07]"
                 />
               </div>
               <div>
@@ -253,14 +253,14 @@ export default function ProjectScreen({ onClose }: Props) {
                   placeholder="Instagram @tutienda, TikTok, LinkedIn..."
                   value={socialAccounts}
                   onChange={(e) => setSocialAccounts(e.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-sans text-sm text-white placeholder-white/30 outline-none focus:border-[#a78bfa]/50"
+                  className="w-full rounded-2xl border border-white/[0.07] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white placeholder-white/25 outline-none transition-colors duration-200 focus:border-[#a78bfa]/60 focus:bg-white/[0.07]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading || !name || !contact}
-                className="w-full rounded-xl bg-[#a78bfa] py-3 font-sans text-sm font-semibold text-[#0d0d14] transition-opacity disabled:opacity-40"
+                className="w-full rounded-2xl bg-[#a78bfa] py-3 font-sans text-sm font-semibold text-[#0d0d14] shadow-[0_0_24px_rgba(167,139,250,0.35)] transition-all duration-200 hover:shadow-[0_0_32px_rgba(167,139,250,0.55)] active:scale-[0.98] disabled:opacity-40 disabled:shadow-none"
               >
                 {loading ? 'Enviando...' : 'Enviar'}
               </button>

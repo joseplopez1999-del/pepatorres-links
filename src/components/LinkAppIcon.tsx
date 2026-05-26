@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 
 export const appIconShellClassName =
-  'flex h-[calc(74px*0.81)] w-[calc(74px*0.81)] shrink-0 items-center justify-center overflow-hidden rounded-[calc(20px*0.81)] bg-white/90 shadow-[0_8px_20px_rgba(0,0,0,0.22)] [&_svg]:h-full [&_svg]:w-full [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:border-0';
+  'flex h-[calc(74px*0.81)] w-[calc(74px*0.81)] shrink-0 items-center justify-center overflow-hidden rounded-[calc(20px*0.81)] bg-white/92 shadow-[0_4px_14px_rgba(0,0,0,0.18),0_1px_3px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.9)] [&_svg]:h-full [&_svg]:w-full [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:border-0';
 
 /** Mismo tamaño que la shell, sin recuadro ni sombra (p. ej. PNG con transparencia). */
 const appIconBareClassName =
@@ -42,8 +42,8 @@ export default function LinkAppIcon({
       className={`group flex h-full min-h-0 flex-col items-center justify-start gap-2 md:justify-end ${className}`}
       {...anchorProps}
     >
-      <div className={`${frameClass} transition-transform duration-200 group-active:scale-95`}>{icon}</div>
-      <span className="shrink-0 text-center text-[12px] font-medium leading-none text-neutral-800">
+      <div className={`${frameClass} transition-all duration-150 ease-out group-active:scale-[0.93] group-active:shadow-none`}>{icon}</div>
+      <span className="shrink-0 text-center text-[12px] font-medium leading-none text-white/75">
         {label}
       </span>
     </a>
