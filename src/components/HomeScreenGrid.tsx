@@ -25,41 +25,28 @@ const MOBILE_APP_ICON_SIZE = 74 * 0.81;
 const MOBILE_VIBE_ICON_SIZE = MOBILE_APPS_ROW_HEIGHT + MOBILE_GRID_GAP + MOBILE_APP_ICON_SIZE;
 
 const HOME_LINKS: Record<AppSlotId, string> = {
-  newsletter: 'https://www.elbackstage.com/',
-  terminal: 'https://terminal.joanacastello.com',
-  advent: '#',
+  newsletter: 'https://joseplopeztorres.com/#newsletter',
+  terminal: 'https://joseplopeztorres.com',
+  advent: 'https://www.tiktok.com/@josepltpianoestudio',
   projects: '#',
-  github: 'https://github.com/joanacastello',
-  soundcloud: 'https://soundcloud.com/joanacastello?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
-  edits: 'https://wa.me/34694206233',
+  github: 'https://github.com/joseplopez1999-del',
+  soundcloud: 'https://www.tiktok.com/@___xus___',
+  edits: '#',
 };
 
 function ProjectsFolderMiniIcon() {
   return (
     <div className="h-full w-full rounded-[inherit] border border-black/10 bg-[hsla(var(--dock-bg))] p-[5px] shadow-[inset_0_1px_0_rgba(255,255,255,0.42)] backdrop-blur-[20px]">
-      <div className="grid h-full w-full grid-cols-3 grid-rows-3 gap-[2px] rounded-[17px] bg-white/12 p-[4px]">
-        <div className="col-start-1 row-start-1 aspect-square overflow-hidden rounded-[6px]">
-          <img
-            src="/zero2hero/zero2hero-icon.png"
-            alt=""
-            width={96}
-            height={96}
-            decoding="async"
-            draggable={false}
-            className="size-full aspect-square object-contain object-center"
-          />
-        </div>
-        <div className="col-start-2 row-start-1 aspect-square overflow-hidden rounded-[6px]">
-          <img
-            src="/onanem/onanem-icon.png"
-            alt=""
-            width={96}
-            height={96}
-            decoding="async"
-            draggable={false}
-            className="size-full aspect-square object-contain object-center"
-          />
-        </div>
+      <div className="flex h-full w-full items-center justify-center rounded-[17px] bg-gradient-to-br from-[#1a0533] via-[#0d0d14] to-[#0a1628]">
+        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+          <path d="M18 4 L22 14 L32 18 L22 22 L18 32 L14 22 L4 18 L14 14 Z" fill="url(#fp2)" />
+          <defs>
+            <linearGradient id="fp2" x1="4" y1="4" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#f3e8ff" />
+              <stop offset="100%" stopColor="#7c3aed" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </div>
   );
@@ -72,12 +59,10 @@ function appIconFor(id: AppSlotId): ReactNode {
         <img src="/app-icons/gmail.png" alt="" width={74} height={74} draggable={false} />
       );
     case 'terminal':
-      return (
-        <img src="/app-icons/terminal.png" alt="" width={74} height={74} draggable={false} />
-      );
+      return null;
     case 'advent':
       return (
-        <img src="/app-icons/adviento.png" alt="" width={74} height={74} draggable={false} />
+        <img src="/app-icons/tiktok.png" alt="" width={74} height={74} draggable={false} />
       );
     case 'projects':
       return <ProjectsFolderMiniIcon />;
@@ -85,11 +70,11 @@ function appIconFor(id: AppSlotId): ReactNode {
       return <img src="/app-icons/github.png" alt="" width={74} height={74} draggable={false} />;
     case 'soundcloud':
       return (
-        <img src="/app-icons/soundcloud.png" alt="" width={74} height={74} draggable={false} />
+        <img src="/app-icons/tiktok.png" alt="" width={74} height={74} draggable={false} />
       );
     case 'edits':
       return (
-        <img src="/app-icons/whatsapp.png" alt="" width={74} height={74} draggable={false} />
+        <img src="/app-icons/gmail.png" alt="" width={74} height={74} draggable={false} />
       );
     default:
       return null;
@@ -101,17 +86,17 @@ function appMeta(id: AppSlotId): { label: string; bare?: boolean } {
     case 'newsletter':
       return { label: 'Newsletter' };
     case 'terminal':
-      return { label: 'Terminal' };
+      return { label: 'Web LOTO' };
     case 'advent':
-      return { label: 'Adviento' };
+      return { label: 'TikTok Piano' };
     case 'projects':
       return { label: 'Proyectos' };
     case 'github':
-      return { label: 'Github', bare: true };
+      return { label: 'GitHub', bare: true };
     case 'soundcloud':
-      return { label: 'SoundCloud' };
+      return { label: 'TikTok Xus' };
     case 'edits':
-      return { label: 'Whatsapp' };
+      return { label: 'Email' };
     default:
       return { label: '' };
   }
@@ -145,6 +130,9 @@ type HomeScreenGridProps = Readonly<{
   onOpenVibe?: () => void;
   onOpenZero2Hero?: () => void;
   onOpenOnAnem?: () => void;
+  onOpenNewsletter?: () => void;
+  onOpenProject?: () => void;
+  onOpenContact?: () => void;
   openProjectsFolderOnMount?: boolean;
   onProjectsFolderOpenHandled?: () => void;
 }>;
@@ -154,6 +142,9 @@ export default function HomeScreenGrid({
   onOpenVibe,
   onOpenZero2Hero,
   onOpenOnAnem,
+  onOpenNewsletter,
+  onOpenProject,
+  onOpenContact,
   openProjectsFolderOnMount = false,
   onProjectsFolderOpenHandled,
 }: HomeScreenGridProps) {
@@ -439,27 +430,44 @@ export default function HomeScreenGrid({
           variant="profile"
           caption="Sobre Mi"
           className="col-span-4 row-span-2 h-full min-h-0 max-md:max-h-[82%] max-md:self-start md:max-h-[90%] md:self-end"
-          profileImage="/foto-joana.png"
-          firstName="Joana"
-          lastName="Castelló"
+          profileImage="/foto-josep.jpg"
+          firstName="Josep"
+          lastName="Lopez Torres"
         />
 
         <LinkWidget
-          caption="Aprende Vibe Coding"
-          onInternalNavigate={onOpenVibe}
-          aria-label="Aprende Vibe Coding"
+          caption="IA"
+          href="https://joseplopeztorres.com"
+          aria-label="IA — joseplopeztorres.com"
           className="col-start-3 row-start-3 col-span-2 row-span-2 h-full min-h-0"
           iconSizeMobilePx={MOBILE_VIBE_ICON_SIZE}
           icon={
-            <img
-              src="/app-icons/sa-logo.png"
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover"
-              width={800}
-              height={800}
-              draggable={false}
-              decoding="async"
-            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#1a0533] via-[#0d0d14] to-[#0a1628]">
+              <div className="relative flex items-center justify-center">
+                <div className="absolute h-24 w-24 rounded-full bg-[#a78bfa]/25 blur-2xl" />
+                <svg width="64" height="48" viewBox="0 0 64 48" fill="none" className="relative z-10">
+                  <defs>
+                    <linearGradient id="aiGrad" x1="0" y1="0" x2="64" y2="48" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#f3e8ff" />
+                      <stop offset="100%" stopColor="#7c3aed" />
+                    </linearGradient>
+                  </defs>
+                  {/* glow layer behind */}
+                  <path d="M 4 44 L 18 4 L 32 44" stroke="#a78bfa" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.25" />
+                  <line x1="9" y1="30" x2="27" y2="30" stroke="#a78bfa" strokeWidth="6" strokeLinecap="round" strokeOpacity="0.25" />
+                  <line x1="40" y1="4" x2="52" y2="4" stroke="#a78bfa" strokeWidth="6" strokeLinecap="round" strokeOpacity="0.25" />
+                  <line x1="46" y1="4" x2="46" y2="44" stroke="#a78bfa" strokeWidth="6" strokeLinecap="round" strokeOpacity="0.25" />
+                  <line x1="40" y1="44" x2="52" y2="44" stroke="#a78bfa" strokeWidth="6" strokeLinecap="round" strokeOpacity="0.25" />
+                  {/* Letter A */}
+                  <path d="M 4 44 L 18 4 L 32 44" stroke="url(#aiGrad)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <line x1="9" y1="30" x2="27" y2="30" stroke="url(#aiGrad)" strokeWidth="2.8" strokeLinecap="round" />
+                  {/* Letter I */}
+                  <line x1="40" y1="4" x2="52" y2="4" stroke="url(#aiGrad)" strokeWidth="2.8" strokeLinecap="round" />
+                  <line x1="46" y1="4" x2="46" y2="44" stroke="url(#aiGrad)" strokeWidth="2.8" strokeLinecap="round" />
+                  <line x1="40" y1="44" x2="52" y2="44" stroke="url(#aiGrad)" strokeWidth="2.8" strokeLinecap="round" />
+                </svg>
+              </div>
+            </div>
           }
         />
         {allowedCells.map((pos) => {
@@ -477,7 +485,7 @@ export default function HomeScreenGrid({
                 gridColumnStart: pos.col + 1,
               }}
             >
-              {occupant ? (
+              {occupant && appIconFor(occupant) !== null ? (
                 <LinkAppIcon
                   label={appMeta(occupant).label}
                   href={HOME_LINKS[occupant]}
@@ -506,12 +514,14 @@ export default function HomeScreenGrid({
                         setIsProjectsFolderOpen(false);
                       }
 
-                      if (
-                        occupant === 'advent' &&
-                        onOpenAdvent
-                      ) {
+                      if (occupant === 'newsletter' && onOpenNewsletter) {
                         e.preventDefault();
-                        onOpenAdvent();
+                        onOpenNewsletter();
+                      }
+
+                      if (occupant === 'edits' && onOpenContact) {
+                        e.preventDefault();
+                        onOpenContact();
                       }
                     },
                   }}
@@ -546,48 +556,29 @@ export default function HomeScreenGrid({
                 </p>
                 <div className="dock-glass h-[min(320px,calc(100vw-2rem))] w-[min(320px,calc(100vw-2rem))] rounded-[30px] border border-white/40 shadow-[0_18px_42px_rgba(0,0,0,0.28)] backdrop-blur-[24px]">
                   <div className="grid h-full w-full place-items-center px-4 pb-3 pt-1">
-                    <div className="grid h-[292px] w-[256px] grid-cols-3 grid-rows-3 place-items-center gap-x-3 gap-y-2">
+                    <div className="flex h-full w-full items-center justify-center">
                       <button
                         type="button"
                         onClick={() => {
                           setIsProjectsFolderOpen(false);
-                          onOpenZero2Hero?.();
+                          onOpenProject?.();
                         }}
-                        className="flex h-[82px] w-[72px] flex-col items-center justify-start gap-1 rounded-xl p-1.5 transition-colors hover:bg-white/10"
+                        className="flex flex-col items-center gap-3 rounded-2xl p-4 transition-colors hover:bg-white/10"
                       >
-                        <div className="h-[56px] w-[56px] shrink-0 aspect-square overflow-hidden rounded-[13px] shadow-[0_6px_14px_rgba(0,0,0,0.2)]">
-                          <img
-                            src="/zero2hero/zero2hero-icon.png"
-                            alt=""
-                            width={128}
-                            height={128}
-                            decoding="async"
-                            draggable={false}
-                            className="size-full aspect-square object-contain object-center"
-                          />
+                        <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[18px] bg-gradient-to-br from-[#1a0533] via-[#0d0d14] to-[#0a1628] shadow-[0_6px_20px_rgba(167,139,250,0.35)]">
+                          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <path d="M18 4 L22 14 L32 18 L22 22 L18 32 L14 22 L4 18 L14 14 Z" fill="url(#fp1)" />
+                            <defs>
+                              <linearGradient id="fp1" x1="4" y1="4" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stopColor="#f3e8ff" />
+                                <stop offset="100%" stopColor="#7c3aed" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
                         </div>
-                        <span className="text-[10px] font-medium leading-none text-neutral-800">Zero2Hero</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setIsProjectsFolderOpen(false);
-                          onOpenOnAnem?.();
-                        }}
-                        className="flex h-[82px] w-[72px] flex-col items-center justify-start gap-1 rounded-xl p-1.5 transition-colors hover:bg-white/10"
-                      >
-                        <div className="h-[56px] w-[56px] shrink-0 aspect-square overflow-hidden rounded-[13px] shadow-[0_6px_14px_rgba(0,0,0,0.2)]">
-                          <img
-                            src="/onanem/onanem-icon.png"
-                            alt=""
-                            width={128}
-                            height={128}
-                            decoding="async"
-                            draggable={false}
-                            className="size-full aspect-square object-contain object-center"
-                          />
-                        </div>
-                        <span className="text-[10px] font-medium leading-none text-neutral-800">On Anem</span>
+                        <span className="max-w-[140px] text-center text-[11px] font-semibold leading-tight text-white/80">
+                          ¿cuándo empiezo tu proyecto?
+                        </span>
                       </button>
                     </div>
                   </div>

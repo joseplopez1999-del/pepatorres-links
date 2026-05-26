@@ -44,8 +44,8 @@ export function getInitialPositions(): Record<AppSlotId, CellPos> {
   return {
     newsletter: { row: 2, col: 0 },
     terminal: { row: 2, col: 1 },
-    advent: { row: 3, col: 0 },
-    projects: { row: 3, col: 1 },
+    advent: { row: 5, col: 1 },
+    projects: { row: 3, col: 0 },
     /** Fila 4 del grid (0-based) vacía a propósito: separa bloque central y dock inferior. */
     edits: { row: 5, col: 0 },
     github: { row: 5, col: 2 },

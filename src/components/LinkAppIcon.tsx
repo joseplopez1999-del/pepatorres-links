@@ -33,11 +33,12 @@ export default function LinkAppIcon({
   anchorProps,
 }: LinkAppIconProps) {
   const frameClass = bare ? appIconBareClassName : appIconShellClassName;
+  const isMailto = href.startsWith('mailto:');
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={isMailto ? '_self' : '_blank'}
+      rel={isMailto ? undefined : 'noopener noreferrer'}
       className={`group flex h-full min-h-0 flex-col items-center justify-start gap-2 md:justify-end ${className}`}
       {...anchorProps}
     >

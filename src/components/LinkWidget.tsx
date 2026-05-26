@@ -31,7 +31,7 @@ export default function LinkWidget({
   profileImage = '/foto-joana.png',
   firstName = 'Joana',
   lastName = 'Castelló',
-  profileSubtitle = 'Ingeniera · Creadora · DJ',
+  profileSubtitle = 'Especialista en IA',
   iconSizeMobilePx,
 }: LinkWidgetProps) {
   const profileShellClass = `flex h-full min-h-0 min-w-0 flex-col justify-start gap-2 px-[5px] ${className}`;
@@ -39,7 +39,7 @@ export default function LinkWidget({
 
   const body =
     variant === 'profile' ? (
-      <div className="flex h-full min-h-0 w-full min-w-0 flex-1 items-center justify-start gap-7 rounded-[22px] bg-[#3e3b36] py-5 pl-5 pr-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] max-md:gap-4 max-md:py-3 max-md:pl-4 max-md:pr-3">
+      <div className="flex h-full min-h-0 w-full min-w-0 flex-1 items-center justify-start gap-7 rounded-[22px] bg-[#c0122b] py-5 pl-5 pr-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] max-md:gap-4 max-md:py-3 max-md:pl-4 max-md:pr-3">
         <div className="size-[76px] shrink-0 overflow-hidden rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.12)] max-md:size-[62px]">
           <img
             src={profileImage}
@@ -59,10 +59,7 @@ export default function LinkWidget({
             {profileSubtitle}
           </p>
           <div className="mt-0.5 flex min-w-0 flex-wrap items-center gap-2">
-            <span className="inline-flex rounded-full bg-[#5a3e35] px-3 py-1 font-sans text-sm font-semibold leading-none text-[#ff7c4d]">
-              Vibe Coding
-            </span>
-            <span className="inline-flex rounded-full bg-[#4d4a45] px-3 py-1 font-sans text-sm font-semibold leading-none text-white/85">
+            <span className="inline-flex rounded-full bg-black/25 px-3 py-1 font-sans text-sm font-semibold leading-none text-white/90">
               IA
             </span>
           </div>
