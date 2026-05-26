@@ -138,10 +138,10 @@ type HomeScreenGridProps = Readonly<{
 }>;
 
 export default function HomeScreenGrid({
-  onOpenAdvent,
-  onOpenVibe,
-  onOpenZero2Hero,
-  onOpenOnAnem,
+  onOpenAdvent: _onOpenAdvent,
+  onOpenVibe: _onOpenVibe,
+  onOpenZero2Hero: _onOpenZero2Hero,
+  onOpenOnAnem: _onOpenOnAnem,
   onOpenNewsletter,
   onOpenProject,
   onOpenContact,
