@@ -433,6 +433,7 @@ export default function HomeScreenGrid({
           profileImage="/foto-josep.jpg"
           firstName="Josep"
           lastName="Lopez Torres"
+          profileSubtitle="AI Implementation Consultant"
         />
 
         <LinkWidget
