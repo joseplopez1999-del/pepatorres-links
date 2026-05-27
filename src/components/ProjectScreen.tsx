@@ -40,6 +40,7 @@ const SERVICE_GROUPS: { label: string; options: string[] }[] = [
     options: [
       'Creación de web',
       'WordPress',
+      'Shopify',
     ],
   },
 ];
